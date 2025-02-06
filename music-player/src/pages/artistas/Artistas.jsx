@@ -6,25 +6,25 @@ function Artistas() {
 
     return (
         <div className='main-container'>
-        <Menu />
+            <Menu />
 
-        <main>
-            <h1>Artistas</h1>
-                <div className='artists-container'>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
-                    <ArtistCard id='Engenheiros do Hawaii'/>
+            <content>
+                <h1>Artistas</h1>
+                    <div className='artists-container'>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
+                        <ArtistCard id='Engenheiros do Hawaii'/>
                     </div>
-            </main>
+            </content>
         </div>
     )
 }
