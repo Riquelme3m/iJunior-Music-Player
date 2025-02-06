@@ -1,0 +1,26 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    width: 100dvw;
+    height: 100dvh;
+    
+}
+
+main {
+    padding: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+    height: 100%;
+    
+}
+
+.artists-container {
+    width: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 13px;
+    justify-content: flex-start;
+}
