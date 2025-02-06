@@ -10,20 +10,20 @@ function Artistas() {
 
             <content>
                 <h1>Artistas</h1>
-                    <div className='artists-container'>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                        <ArtistCard id='Engenheiros do Hawaii'/>
-                    </div>
+                <div className='artists-container'>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                    <ArtistCard id='Engenheiros do Hawaii'/>
+                </div>
             </content>
         </div>
     )
