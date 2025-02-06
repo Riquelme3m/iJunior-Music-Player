@@ -1,0 +1,10 @@
+.artist-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    width: 200px;
+    height: 280px;
+    background-color: #1F1F1F;
+    padding: 13px;
+    box-sizing: border-box;
+}
