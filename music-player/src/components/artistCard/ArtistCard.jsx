@@ -11,8 +11,8 @@ const ArtistCard = ({ id }) => {
   return (
     <div className='artist-card-container' onClick={id}>
       <img src={image} alt="Artist cover"></img>
-      <p>{name}</p>
-      <p>Artista</p>
+      <p className='artist-name'>{name}</p>
+      <p className='role'>Artista</p>
     </div>
   )
 }

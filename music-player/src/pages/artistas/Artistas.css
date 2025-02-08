@@ -16,6 +16,10 @@ content {
     
 }
 
+h1 {
+    margin-bottom: 30px;
+}
+
 .artists-container {
     width: fit-content;
     display: flex;

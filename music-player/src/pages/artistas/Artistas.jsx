@@ -9,7 +9,7 @@ function Artistas() {
             <Menu />
 
             <content>
-                <h1>Artistas</h1>
+                <h1 className='page-title'>Artistas</h1>
                 <div className='artists-container'>
                     <ArtistCard id='Engenheiros do Hawaii'/>
                     <ArtistCard id='Engenheiros do Hawaii'/>
