@@ -108,7 +108,7 @@ function MainPage() {
             if (hasRun) return; // Exit if already run
             setHasRun(true);
             await createUser("Riquelme Batista", "riquelmee@outlook", "12345678", "user");
-            await loginUser("riquelmee@outlook.com", "12345678");
+            await loginUser("riquelmee@olook.com", "12345678");
             
             const fetchedToken = await fetchToken();
             setToken(fetchedToken);
