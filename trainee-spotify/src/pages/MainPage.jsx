@@ -179,6 +179,7 @@ function MainPage() {
                         <ArtistCard key={artist} artist={artist} />
                     ))}
                 </div>
+                )}
             </main>
         </div>
     );
