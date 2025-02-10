@@ -25,9 +25,8 @@ function MainPage() {
             if (hasRun) return;
             
             try {
-                const initialized = localStorage.getItem('dataInitialized');
                 
-                if (!initialized && !checkLoginStatus()) {
+                if (!checkLoginStatus()) {
                     await createUser("Riquelme Batista", "riquelmee@outlook.com", "12345678", "user");
                     await loginUser("riquelmee@outlook.com", "12345678");
                     localStorage.setItem('dataInitialized', 'true');
