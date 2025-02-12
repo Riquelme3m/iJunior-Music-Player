@@ -3,13 +3,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import AppRouter from './routes/AppRouter'
+import LoginPage from './pages/LoginPage'
 
 
 function App() {
   
 
   return (
-    <AppRouter></AppRouter>
+    // <AppRouter></AppRouter>
+    <LoginPage></LoginPage>
     
   )
 }

@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@tailwind utilities;
+
 
 .material-symbols-outlined {
   font-variation-settings:

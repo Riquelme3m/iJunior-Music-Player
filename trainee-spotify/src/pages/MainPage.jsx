@@ -107,8 +107,8 @@ function MainPage() {
         async function fetchData() {
             if (hasRun) return; // Exit if already run
             setHasRun(true);
-            await createUser("Riquelme Batista", "riquelmee@outlook", "12345678", "user");
-            await loginUser("riquelmee@olook.com", "12345678");
+            await createUser("Riquelme Batista", "riquelmee@outlook.com", "12345678", "user");
+            await loginUser("riquelmee@outlook.com", "12345678");
             
             const fetchedToken = await fetchToken();
             setToken(fetchedToken);
@@ -146,7 +146,7 @@ function MainPage() {
             <aside className="w-[30%] bg-[#000000] text-white flex flex-col overflow-hidden max-w-[263px] ">
                 {/* Sticky container */}
                 <div className="sticky top-0 pl-2 bg-black h-[100vh] flex flex-col gap-[1rem] items-[center] sm:items-center">
-                    <div className="flex gap-[0.2rem] pt-[2rem] text-[10px] justify-center pt-[1rem]">
+                    <div className="flex gap-[0.2rem]  text-[10px] justify-center pt-[1rem]">
                         <h1 className="hover:text-green-400 text-[1rem] font-[600] sm:text-[2.5rem] ">iSpotify</h1>
                         <i className="fa-regular fa-registered text-[10px] sm:text-[20px] "></i>
                     </div>
