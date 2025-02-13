@@ -112,7 +112,7 @@ function LoginPage() {
 
             </form>
             <div className="">
-                <p>NÃO TEM UMA CONTA?<a href="#"> Increva-se</a></p>
+                <p>NÃO TEM UMA CONTA?<a href="#"> Inscreva-se</a></p>
             </div>
 
         </div>
