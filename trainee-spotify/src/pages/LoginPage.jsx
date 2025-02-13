@@ -4,24 +4,9 @@ import mailIcon from "../assets/mail.svg";
 import { useState } from "react";
 import Alert from '@mui/material/Alert';
 
-
-
-// function logUser({email,password}){
-
-//     const api = axios.create({
-//         baseURL: "http://localhost:3030/api",
-//         withCredentials: true,
-//     });
-
-// }
-
-
+import { loginUser } from "../services/api";
 
 function LoginPage() {
-
-    
-
-
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -32,44 +17,46 @@ function LoginPage() {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
-    function isEmailInDatabase(email) {
-        return true;
-        //Here I should also check if the e-mail exists in the database
-        //Through API Call
-    }
-
-    function isPasswordInDatabase(password) {
-        //Based on the API response this function will be valid or not
-        return true;
-    };
-
     async function handleSubmit(e) {
         e.preventDefault();
+        setLoading(true);
 
-        setError({ email: "", password: "" });
+        setError({ email: "", password: "" })
 
-        let formErrors = { email: "", password: "" };
+        let formErrors = { email: "", password: "" }
 
 
         if (!email) {
-            formErrors.email = "Campo e-mail é obrigatório";
+            formErrors.email = "Campo e-mail é obrigatório"
 
         } else if (!isValidEmail(email)) {
-            formErrors.email = "E-mail em formato inválido!";
+            formErrors.email = "E-mail em formato inválido!"
         }
 
         if (!password) {
-            formErrors.password = "Campo senha é obrigatório";
-
+            formErrors.password = "Campo senha é obrigatório"
         }
 
         if (formErrors.email || formErrors.password) {
             setError(formErrors);
+            setLoading(false);
             return;
         }
+
+        try {
+            const response = await loginUser(email, password)
+            if (response.success) {
+                window.location.href = "/"
+            } else {
+                formErrors.password = response.error.response?.data;
+                setError(formErrors);
+            }
+        } catch (err) {
+            formErrors.password = "Erro ao fazer login. Tente novamente."
         setError(formErrors);
-
-
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
@@ -103,16 +90,16 @@ function LoginPage() {
                 </div>
                 {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
 
-
-                <div className="flex justify-center">
-                    <button type="submit" className="bg-white text-black w-[240px] h-[45px] rounded-full" >Entrar</button>
-                </div>
-
-
-
+                <button 
+                    type="submit" 
+                    className="bg-white text-black w-[240px] h-[45px] rounded-full"
+                    disabled={loading}
+                >
+                    {loading ? "Carregando..." : "Entrar"}
+                </button>
             </form>
             <div className="">
-                <p>NÃO TEM UMA CONTA?<a href="#"> Inscreva-se</a></p>
+                <p>NÃO TEM UMA CONTA?<a href="/signup"> Inscreva-se</a></p>
             </div>
 
         </div>
