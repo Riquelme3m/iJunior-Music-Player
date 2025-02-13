@@ -90,11 +90,7 @@ function LoginPage() {
                 </div>
                 {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
 
-                <button 
-                    type="submit" 
-                    className="bg-white text-black w-[240px] h-[45px] rounded-full"
-                    disabled={loading}
-                >
+                <button type="submit" disabled={loading} className="bg-white text-black w-[240px] h-[45px] rounded-full place-self-center">
                     {loading ? "Carregando..." : "Entrar"}
                 </button>
             </form>
