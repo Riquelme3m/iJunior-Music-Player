@@ -29,10 +29,10 @@ export const loginUser = async (email, password) => {
         const response = await api.post("/users/login", { email, password });
         localStorage.setItem('isLoggedIn', 'true');
         console.log("Login successful:", response);
-        return true;
+        return { success: true };
     } catch (error) {
         console.error("Error logging in:", error);
-        return false;
+        return { success: false, error };
     }
 };
 
