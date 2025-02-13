@@ -3,7 +3,7 @@ import lockIcon from "../assets/lock.svg";
 import mailIcon from "../assets/mail.svg";
 import { useState } from "react";
 import Alert from '@mui/material/Alert';
-
+import { Link } from "react-router-dom";
 import { loginUser } from "../services/api";
 
 function LoginPage() {
@@ -44,7 +44,7 @@ function LoginPage() {
         }
 
         try {
-            const response = await loginUser(email, password)
+            const response = await loginUser(email, password);
             if (response.success) {
                 window.location.href = "/"
             } else {
@@ -95,7 +95,7 @@ function LoginPage() {
                 </button>
             </form>
             <div className="">
-                <p>NÃO TEM UMA CONTA?<a href="/signup"> Inscreva-se</a></p>
+                <p>NÃO TEM UMA CONTA?</p><Link to="/signup">Increva-se</Link>
             </div>
 
         </div>

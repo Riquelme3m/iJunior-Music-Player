@@ -15,7 +15,7 @@ function AppRouter() {
             <Routes>
                 // Login: caso ja estiver logado vai para /
                 <Route path="/login" element={!isLoggedIn ? <LoginPage /> : <Navigate to="/" />} />
-                <Route path="/signup" element={!isLoggedIn ? <SignupPage /> : <Navigate to="/" />} />
+                <Route path="/signup/" element={!isLoggedIn ? <SignupPage /> : <Navigate to="/" />} />
 
                 // Main: caso não estiver logado vai para /login
                 <Route path="/" element={

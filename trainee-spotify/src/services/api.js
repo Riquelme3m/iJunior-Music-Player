@@ -15,12 +15,24 @@ export const getAllArtists = async () => {
     }
 };
 
+export const getAllUsers = async ()=>{
+    try{
+        const response = await api.get("/users");
+        return response.data;
+    }catch(error){
+        console.error("Error fetching users:", error);
+        return null;
+    }
+}
+
 export const createUser = async (name, email, password, role) => {
     try {
         const response = await api.post(`/users`, { name, email, password, role });
         console.log("User created:", response);
+        return {success:true};
     } catch (error) {
         console.error("Error creating user:", error);
+        return {success:false,error};
     }
 };
 
