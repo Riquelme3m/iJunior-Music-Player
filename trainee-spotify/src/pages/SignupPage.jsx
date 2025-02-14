@@ -7,7 +7,7 @@ import Alert from '@mui/material/Alert';
 import { getAllUsers, createUser } from "../services/api";
 
 const SignupPage = () => {
-
+    const [wasUserCreated, setWasUserCreated] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -57,7 +57,7 @@ const SignupPage = () => {
 
             if (response.success) {
                 console.log(response.data);
-                window.location.href = "/";
+                setWasUserCreated(true);
             } else {
 
                 formErrors.username = response.error.response?.data;
@@ -86,14 +86,22 @@ const SignupPage = () => {
         //redirect to login page
     }
 
-
-
-
-
+    if (wasUserCreated) {
+        return (
+            <div className="flex flex-col justify-center items-center w-[100vw] h-[100vh] m-auto bg-black text-white gap-6">
+                <div className="bg-[#3c3c3c] p-8 rounded-lg text-center">
+                    <i className="fa-solid fa-circle-check text-green-500 text-5xl mb-4"></i>
+                    <h2 className="text-2xl font-bold mb-4">Conta criada com sucesso!</h2>
+                    <p className="mb-6">Seja bem-vindo(a) ao iSpotify!</p>
+                    <Link to="/login" className="bg-white text-black px-8 py-3 rounded-full hover:bg-gray-200 transition-colors">
+                        Fazer Login
+                    </Link>
+                </div>
+            </div>
+        );
+    }
 
     return (
-
-
         <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-black text-white gap-10">
             <div className="flex flex-col gap-5 jus">
                 <div className="flex gap-1.5 justify-center">
@@ -138,12 +146,12 @@ const SignupPage = () => {
                 {isLoading ? "Carregando..." : "Cadastrar"}
                 </button>
             </form>
+
             <div className="">
                 <p>Já é um usuário do iSpotify?<Link to="/login"> Faça login</Link></p>
             </div>
 
         </div>
-
     )
 }
 
