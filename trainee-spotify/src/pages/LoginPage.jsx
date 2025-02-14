@@ -11,7 +11,7 @@ function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState({ email: "", password: "" });
-    const [loading,setLoading] = useState(false);
+    const [isLoading,setLoading] = useState(false);
 
     function isValidEmail(email) {
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -90,8 +90,8 @@ function LoginPage() {
                 </div>
                 {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
 
-                <button type="submit" disabled={loading} className="bg-white text-black w-[240px] h-[45px] rounded-full place-self-center">
-                    {loading ? "Carregando..." : "Entrar"}
+                <button type="submit" disabled={isLoading} className="bg-white text-black w-[240px] h-[45px] rounded-full place-self-center">
+                    {isLoading ? "Carregando..." : "Entrar"}
                 </button>
             </form>
             <div className="">
