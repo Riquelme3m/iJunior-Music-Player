@@ -95,7 +95,7 @@ function LoginPage() {
                 </button>
             </form>
             <div className="">
-                <p>NÃO TEM UMA CONTA?</p><Link to="/signup">Increva-se</Link>
+                <p>NÃO TEM UMA CONTA?</p><Link to="/signup">Inscreva-se</Link>
             </div>
 
         </div>

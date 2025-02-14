@@ -140,7 +140,7 @@ const SignupPage = () => {
                 </button>
             </form>
             <div className="">
-                <p>Já é um usuário do iSporify?<Link to="/login">Faça login</Link></p>
+                <p>Já é um usuário do iSpotify?<Link to="/login"> Faça login</Link></p>
             </div>
 
         </div>
