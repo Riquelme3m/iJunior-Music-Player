@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @tailwind utilities;
 
-
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -10,12 +9,10 @@
   'opsz' 40
 }
 
-
 :root{
     --color-primary:#000000;
     --color-secondary:#181818;
 }
-
 
 body{
   font-family: "Poppins","Arial" ;
@@ -24,5 +21,4 @@ body{
   padding:0;
   box-sizing:border-box;
   overflow-x:hidden;
-  
 }
