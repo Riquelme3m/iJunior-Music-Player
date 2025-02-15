@@ -60,23 +60,23 @@ function LoginPage() {
     }
 
     return (
-        <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-black text-white gap-10">
-            <div className="flex flex-col gap-5 jus">
-                <div className="flex gap-1.5 justify-center">
-                    <h1 className="">iSpotify</h1>
+        <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-[#111111] text-white gap-10">
+            <div className="flex flex-col gap-10 jus">
+                <div className="flex gap-1 justify-center">
+                    <h1 className="text-5xl font-semibold">iSpotify</h1>
                     <i className="fa-regular fa-registered"></i>
                 </div>
 
-                <p>Música para todos</p>
+                <p className="text-4xl font-semibold">Música para todos.</p>
             </div>
 
-            <form action="" className=" flex flex-col gap-[2.5rem]" onSubmit={handleSubmit} noValidate>
+            <form action="" className=" flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
 
                 <div className="flex relative">
                     <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
-                    <img src={mailIcon} alt="Mail icon" className="absolute right-[10px]" />
+                    <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] inset-y-0 my-auto" />
 
                 </div>
                 {error.email && <Alert variant="outlined" severity="error">{error.email}</Alert>}
@@ -86,16 +86,16 @@ function LoginPage() {
                         setPassword(e.target.value);
                     }}
                     />
-                    <img src={lockIcon} alt="Lock icon" className="absolute right-[10px]" />
+                    <img src={lockIcon} alt="Lock icon" className="absolute right-[10px] inset-y-0 my-auto" />
                 </div>
                 {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
 
-                <button type="submit" disabled={isLoading} className="bg-white text-black w-[240px] h-[45px] rounded-full place-self-center">
+                <button type="submit" disabled={isLoading} className="bg-white text-black font-semibold uppercase w-[240px] h-[45px] rounded-full place-self-center">
                     {isLoading ? "Carregando..." : "Entrar"}
                 </button>
             </form>
-            <div className="">
-                <p>NÃO TEM UMA CONTA?</p><Link to="/signup">Inscreva-se</Link>
+            <div className="font-semibold uppercase flex flex-row gap-1.5">
+                <p>Não tem uma conta?</p><Link to="/signup" className="underline">Inscreva-se</Link>
             </div>
 
         </div>

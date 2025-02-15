@@ -102,22 +102,25 @@ const SignupPage = () => {
     }
 
     return (
-        <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-black text-white gap-10">
-            <div className="flex flex-col gap-5 jus">
-                <div className="flex gap-1.5 justify-center">
-                    <h1 className="">Inscrever-se em uma conta grátis do iSpotify</h1>
-                    <i className="fa-regular fa-registered"></i>
+        <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-[#111111] text-white gap-10">
+            <div className="flex flex-col gap-5 jus max-w-[25rem]">
+                <div className="flex flex-col gap-1 justify-center">
+                    <h1 className="text-4xl font-semibold text-center leading-snug">Inscrever-se em uma conta grátis do</h1>
+                    <div className="flex justify-center gap-1">
+                        <h1 className="text-4xl font-semibold text-center leading-snug">iSpotify</h1><i className="fa-regular fa-registered"></i>
+                    </div>
+                    
                 </div>
 
             </div>
 
-            <form action="" className=" flex flex-col gap-[2.5rem]" onSubmit={handleSubmit} noValidate>
+            <form action="" className=" flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
 
                 <div className="flex relative">
                     <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
-                    <img src={mailIcon} alt="Mail icon" className="absolute right-[10px]" />
+                    <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] inset-y-0 my-auto" />
 
                 </div>
                 {error.email && <Alert variant="outlined" severity="error">{error.email}</Alert>}
@@ -128,7 +131,7 @@ const SignupPage = () => {
                         setPassword(e.target.value);
                     }}
                     />
-                    <img src={lockIcon} alt="Lock icon" className="absolute right-[10px]" />
+                    <img src={lockIcon} alt="Lock icon" className="absolute right-[10px] inset-y-0 my-auto" />
                 </div>
 
                 {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
@@ -138,17 +141,17 @@ const SignupPage = () => {
                         setUsername(e.target.value);
                     }}
                     />
-                    <img src={personIcon} alt="Person icon" className="absolute right-[10px]" />
+                    <img src={personIcon} alt="Person icon" className="absolute right-[10px] inset-y-0 my-auto" />
                 </div>
                 {error.username && <Alert variant="outlined" severity="error">{error.username}</Alert>}
 
-                <button type="submit" disabled={isLoading} className="bg-white text-black w-[240px] h-[45px] rounded-full place-self-center">
+                <button type="submit" disabled={isLoading} className="bg-[#3FE168] text-white font-semibold uppercase w-[240px] h-[45px] rounded-full place-self-center">
                 {isLoading ? "Carregando..." : "Cadastrar"}
                 </button>
             </form>
 
-            <div className="">
-                <p>Já é um usuário do iSpotify?<Link to="/login"> Faça login</Link></p>
+            <div className="font-semibold uppercase flex flex-row gap-1.5">
+                <p>Já é um usuário do iSpotify?</p><Link to="/login" className="underline">Faça login</Link>
             </div>
 
         </div>
