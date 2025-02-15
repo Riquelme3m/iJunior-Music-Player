@@ -109,7 +109,7 @@ const SignupPage = () => {
                     <div className="flex justify-center gap-1">
                         <h1 className="text-4xl font-semibold text-center leading-snug">iSpotify</h1><i className="fa-regular fa-registered"></i>
                     </div>
-                    
+
                 </div>
 
             </div>
@@ -123,7 +123,7 @@ const SignupPage = () => {
                     <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] inset-y-0 my-auto" />
 
                 </div>
-                {error.email && <Alert variant="outlined" severity="error">{error.email}</Alert>}
+                {error.email && <Alert variant="outlined" severity="error" className='-mt-4'>{error.email}</Alert>}
 
 
                 <div className="flex relative">
@@ -134,7 +134,7 @@ const SignupPage = () => {
                     <img src={lockIcon} alt="Lock icon" className="absolute right-[10px] inset-y-0 my-auto" />
                 </div>
 
-                {error.password && <Alert variant="outlined" severity="error">{error.password}</Alert>}
+                {error.password && <Alert variant="outlined" severity="error" className='-mt-4'>{error.password}</Alert>}
 
                 <div className="flex relative">
                     <input type="text" id="username" placeholder="Como devemos chamar você?" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
@@ -143,10 +143,10 @@ const SignupPage = () => {
                     />
                     <img src={personIcon} alt="Person icon" className="absolute right-[10px] inset-y-0 my-auto" />
                 </div>
-                {error.username && <Alert variant="outlined" severity="error">{error.username}</Alert>}
+                {error.username && <Alert variant="outlined" severity="error" className='-mt-4'>{error.username}</Alert>}
 
                 <button type="submit" disabled={isLoading} className="bg-[#3FE168] text-white font-semibold uppercase w-[240px] h-[45px] rounded-full place-self-center">
-                {isLoading ? "Carregando..." : "Cadastrar"}
+                    {isLoading ? "Carregando..." : "Cadastrar"}
                 </button>
             </form>
 
