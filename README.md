@@ -5,9 +5,18 @@
 
 ### How to run
 1. Clone this repo:
-```git clone https://github.com/Riquelme3m/iJunior-Music-Player```
+    ```bash
+    git clone https://github.com/Riquelme3m/iJunior-Music-Player
+    ```
 
-2. Install front-end dependencies and start:
+2. Install api dependencies and start:
+    ```bash
+    cd trainee-spotify/api
+    npm install
+    npm start
+    ```
+
+3. Open another terminal, install front-end dependencies and start:
    ```bash
     cd trainee-spotify/
     npm install
@@ -15,17 +24,9 @@
     ```
 
     and access the url created.
-    <br></br>
-
-3. Open another terminal, install api dependencies and start:
-    ```bash
-    cd trainee-spotify/api
-    npm install
-    npm start
-    ```
 
     **Ready to use!**
 <br></br>
 
 For more info on the API, access: 
-- https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS/blob/main/README.md
+- https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS
