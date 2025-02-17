@@ -15,11 +15,11 @@ export const getAllArtists = async () => {
     }
 };
 
-export const getAllUsers = async ()=>{
-    try{
+export const getAllUsers = async () => {
+    try {
         const response = await api.get("/users");
         return response.data;
-    }catch(error){
+    } catch (error) {
         console.error("Error fetching users:", error);
         return null;
     }
@@ -29,10 +29,10 @@ export const createUser = async (name, email, password, role) => {
     try {
         const response = await api.post(`/users`, { name, email, password, role });
         console.log("User created:", response);
-        return {success:true};
+        return { success: true };
     } catch (error) {
         console.error("Error creating user:", error);
-        return {success:false,error};
+        return { success: false, error };
     }
 };
 
@@ -70,7 +70,7 @@ export const setupInitialArtists = async () => {
         { id: "74KM79TiuVKeVCqs8QtB0B", nationality: "Americana" },
         { id: "4NUePmzDvCYqilXBFa91Hg", nationality: "Brasileiro" },
         { id: "4dpARuHxo51G3z768sgnrY", nationality: "Britânica" },
-        { id: "1i8SpTcr7yvPOmcqrbnVXY", nationality: "República Dominicana"}
+        { id: "1i8SpTcr7yvPOmcqrbnVXY", nationality: "República Dominicana" }
     ];
 
     try {
@@ -85,7 +85,7 @@ export const setupInitialArtists = async () => {
                 client_id: '61094d576c204460aacc8f1759eb7141',
                 client_secret: 'fd8e6de7bba54d40b97fc2eef0c4221c',
             }),
-        })  .then(response => response.json())
+        }).then(response => response.json())
             .then(data => data.access_token);
 
         // Processa cada artista
