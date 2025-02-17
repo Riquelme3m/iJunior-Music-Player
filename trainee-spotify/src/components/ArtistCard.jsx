@@ -3,7 +3,7 @@ import dummyImage from "../assets/dummy-image.jpg";
 
 
 
-function ArtistCard( {artist}) {
+function ArtistCard({artist}) {
   
   return (
     <div className="bg-[#181818] w-[180px] h-[250px] rounded-lg flex flex-col items-start  justify-around pb-[1rem] pt-[0.2rem]">

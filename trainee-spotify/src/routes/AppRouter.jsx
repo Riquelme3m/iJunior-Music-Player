@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import CurtidasPage from "../pages/LikesPage";
 import Account from "../pages/Account";
+import ArtistSongs from "../pages/ArtistsongsPage";
 
 
 function AppRouter() {
@@ -27,6 +28,10 @@ function AppRouter() {
                 <Route path="/likes" element={
                     isLoggedIn ? <CurtidasPage /> : <Navigate to="/login" />
                 } />
+
+                <Route path="/songs/:artistId" element={
+                    isLoggedIn ? <ArtistSongs /> : <Navigate to="/login" />
+                }/>
 
                 // Account: caso não estiver logado vai para /login
                 <Route path="/account" element={

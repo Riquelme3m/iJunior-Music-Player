@@ -2,18 +2,23 @@ import React, { useState, useEffect } from "react";
 import ArtistCard from "../components/ArtistCard";
 import Sidebar from "../components/Sidebar";
 import { getAllArtists, createUser, loginUser, checkLoginStatus } from "../services/api";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+import { createContext,useContext } from "react";
+
 
 function MainPage() {
+    
     const [allArtistsToBeDisplayed, setAllArtistsToBeDisplayed] = useState([]);
     const [hasRun, setHasRun] = useState(false); // State to ensure one-time function execution
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
+   
     const loadArtists = async () => {
         try {
             const allArtistsFromDatabase = await getAllArtists();
-            const lastTenArtists = allArtistsFromDatabase.slice(-10);
-            setAllArtistsToBeDisplayed(lastTenArtists);
+            const firstTenArtists = allArtistsFromDatabase.slice(0,10);
+            setAllArtistsToBeDisplayed(firstTenArtists);
         } catch (err) {
             setError('Failed to load artists');
         } finally {
@@ -24,16 +29,16 @@ function MainPage() {
     useEffect(() => {
         const initialize = async () => {
             if (hasRun) return;
-            
+
             try {
                 const initialized = localStorage.getItem('dataInitialized');
-                
+
                 if (!initialized && !checkLoginStatus()) {
                     await createUser("Riquelme Batista", "riquelmee@outlook.com", "12345678", "admin");
                     await loginUser("riquelmee@outlook.com", "12345678");
                     localStorage.setItem('dataInitialized', 'true');
                 }
-                
+
                 await loadArtists();
                 setHasRun(true);
             } catch (error) {
@@ -46,6 +51,7 @@ function MainPage() {
         initialize();
     }, [hasRun]);
 
+    let navigate = useNavigate();
     return (
         <div className="flex h-screen">
             {/* Sidebar */}
@@ -59,11 +65,19 @@ function MainPage() {
                 ) : error ? (
                     <div className="text-red-500 text-center mt-10">{error}</div>
                 ) : (
-                    <div className="grid grid-rows-auto justify-center gap-y-[2rem] gap-x-[0.2rem] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-[2rem]">
+
+                    <div className="grid grid-rows-auto justify-center gap-y-[2rem] gap-x-[0.2rem] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 p-[2rem] cursor-pointer">
                         {allArtistsToBeDisplayed.map((artist, index) => (
-                            <ArtistCard key={artist._id || index} artist={artist} />
+                            <div key={artist.id || index} onClick={()=>{
+                                navigate(`/songs/${artist.id}`)
+                            }}>
+                                <ArtistCard artist={artist} />
+                               
+
+                            </div>
                         ))}
                     </div>
+
                 )}
             </main>
         </div>

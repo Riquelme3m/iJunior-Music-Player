@@ -9,33 +9,37 @@ import downloadIcon from "../assets/download.svg";
 import ellipsisIcon from "../assets/ellipsis.svg";
 import deleteIcon from "../assets/delete.svg";
 import clockIcon from "../assets/clock.svg";
-import violetHeart from "../assets/violetHeart.svg"
-import {getSongsUserLiked} from "../services/api";
-import {getUserInfo} from "../services/api";
+import {linkSongToUser} from "../services/api";
 
 function ArtistSongs() {
 
-    const[SongsUserLiked,setSongsUserLiked]=useState([]);
-    useEffect(()=>{
-        const fetchSongs = async () =>{
-            try{
-                const userInfo = await getUserInfo();
-                const songs = await getSongsUserLiked(userInfo.id);
-                setSongsUserLiked(songs);
-           }   
-           catch(e){
-               console.error("Error getting the songs user liked",e);
-           }
-        }
-        fetchSongs();
-        
-    },[])
+    const [songObject, setSongObject] = useState();
+    const [artist, setArtist] = useState();
+    let { artistId } = useParams();
 
-    
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const songData = await getSongObjectFromAnArtistsById(artistId);
+                const artist = await getArtistById(artistId);
+                setSongObject(songData);
+                setArtist(artist);
+
+            }
+            catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchData();
+
+    }, [artistId]);
 
 
-    
-    
+    if (!songObject) {
+        return (<div className="h-[100vh] text-white text-[30px] bg-linear-to-t from-[#101010] via-[#101010] via-20% to-[#3a3939] ">Loading...</div>);
+    }
+    console.log(songObject);
 
     return (
 
@@ -46,16 +50,18 @@ function ArtistSongs() {
 
             <main className=" flex flex-col gap-[4rem] pt-[100px] pl-[0.5rem] text-[13px] sm:pl-[4rem] sm:pt-[20vh]  bg-linear-to-t from-[#101010] via-[#101010] via-20% to-[#3a3939]  w-auto flex-grow overflow-y-auto h-screen p-0 ">
                 <div className="flex flex-row gap-8 sm:gap-10 ">
-                    <img className="w-[100px] h-[100px] rounded-[2px] sm:w-[200px]  sm:h-[200px]" src={violetHeart} alt="Artist Image" />
+                    <img className="w-[100px] h-[100px] rounded-[2px] sm:w-[200px]  sm:h-[200px]" src={artist.image} alt="Artist Image" />
                     <div className="flex flex-col gap-2   justify-end">
-                        <h4 className="sm:text-[17px]">PLAYLIST</h4>
-                        <h1 className="font-[700] sm:text-[37px] md:text-[48px]">Músicas Curtidas</h1>
+                        <h4 className="sm:text-[17px]">ARTISTA</h4>
+                        <h1 className="font-[700] sm:text-[37px] md:text-[48px]">{artist.name}</h1>
                     </div>
                 </div>
 
                 <div className="flex flex-row  gap-5 sm:gap-15 pt-[4rem] pl-[1rem]">
                     <i className="fa-solid fa-circle-play scale-250 text-green-600 sm:scale-450 cursor-pointer "></i>
+                    <i class="fa-regular scale-200 fa-heart sm:scale-300 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
                     <i class="fa-regular scale-170 fa-circle-down sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400 "></i>
+                    <i class="fa-solid scale-160 fa-ellipsis sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
                 </div>
 
 
@@ -64,21 +70,21 @@ function ArtistSongs() {
                         <tr className="border-b-1" >
                             <th className="text-[#D9D9D9] pb-[1rem] text-left"># TÍTULO</th>
                             <th className="text-[#D9D9D9] pb-[1rem]  text-left">Gênero</th>
-                            <th className="text-[#D9D9D9] pb-[1rem]  text-center md:text-center lg:text-left"></th>
+                            <th className="text-[#D9D9D9] pb-[1rem]  text-center md:text-center lg:text-left"><i class="fa-regular fa-clock"></i></th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            SongsUserLiked.map((song, index) => {
+                            songObject.map((song, index) => {
                                 return (
-                                    <tr key={index}>
+                                    <tr key={artist.id}>
 
                                         <td className=" text-left p-[1rem]">
                                             <div className="flex gap-2">
                                                 <span className="flex flex-col justify-center sm:pr-[0.8rem]">{index + 1}</span>
                                                 <div>
                                                     <h3>{song.title}</h3>
-                                                    <h3>{song.artist}</h3>
+                                                    <h3>{artist.name}</h3>
                                                 </div>
 
                                             </div>
@@ -86,12 +92,16 @@ function ArtistSongs() {
 
                                         <td>
                                             <h3>{song.genre}</h3>
+                                            
+                                            
                                         </td>
 
                                         <td className="pl-[0.5rem]">
 
                                             <div className="flex gap-[0.3rem] sm:gap-[1rem]">
-                                               
+                                                <i className="fa-regular  fa-heart cursor-pointer hover:text-green-400 " onClick={()=>{
+                                                    linkSongToUser(song.id);
+                                                }} ></i>
                                                 <i className="fa-solid fa-trash cursor-pointer hover:text-green-400"></i>
                                             </div>
 
