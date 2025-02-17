@@ -1,6 +1,7 @@
 import React from 'react'
 import { logoutUser } from '../services/api'
 import { useNavigate } from 'react-router-dom'
+import AccountIcon from '../assets/account.svg'
 
 const Sidebar = () => {
     const navigate = useNavigate()
@@ -20,6 +21,10 @@ const Sidebar = () => {
                 <button onClick={() => navigate('/likes')} className="cursor-pointer flex gap-[0.4rem] items-center w-[100%] justify-start sm:justify-center text-[#CCCCCC]">
                     <span className=""><i className="fa-solid fa-heart text-[10px] sm:text-[20px]"></i></span>
                     <h3 className="hover:text-green-400 text-[0.7rem] font-[500] sm:text-[1.1rem]">Músicas Curtidas</h3>
+                </button>
+                <button onClick={() => navigate('/account')} className="cursor-pointer flex gap-[0.4rem] items-center w-[100%] justify-start sm:justify-center text-[#CCCCCC]">
+                    <img src={AccountIcon} alt="Conta" className="w-[14px] h-[14px] sm:w-[20px] sm:h-[20px]" />
+                    <h3 className="hover:text-green-400 text-[0.7rem] font-[500] sm:text-[1.1rem]">Minha Conta</h3>
                 </button>
                 <button onClick={logoutUser} className="cursor-pointer flex gap-[0.3rem] items-center pl-[5px] justify-start absolute bottom-0">
                     <i className="fa-solid fa-arrow-right-from-bracket sm:text-[20px]"></i>

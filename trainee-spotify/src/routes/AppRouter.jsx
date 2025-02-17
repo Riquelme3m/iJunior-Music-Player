@@ -5,6 +5,7 @@ import MainPage from "../pages/MainPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import CurtidasPage from "../pages/LikesPage";
+import Account from "../pages/Account";
 
 
 function AppRouter() {
@@ -25,6 +26,11 @@ function AppRouter() {
                 // Likes: caso não estiver logado vai para /login
                 <Route path="/likes" element={
                     isLoggedIn ? <CurtidasPage /> : <Navigate to="/login" />
+                } />
+
+                // Account: caso não estiver logado vai para /login
+                <Route path="/account" element={
+                    isLoggedIn ? <Account /> : <Navigate to="/login" />
                 } />
 
                 // Pagina não definida: vai para /

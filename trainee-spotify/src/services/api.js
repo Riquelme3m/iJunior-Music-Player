@@ -58,6 +58,41 @@ export const checkLoginStatus = () => {
     return localStorage.getItem('isLoggedIn') === 'true';
 };
 
+export const getUserInfo = async () => {
+    try {
+        const response = await api.get("/users/user");
+        return response.data;
+    } catch (error) {
+        console.error("Error getting user info:", error);
+        return { success: false, error };
+    }
+}
+
+export const updateUserEmail = async (id, email) => {
+    try {
+        console.log(`id a atualizar ${id}`)
+        const response = await api.put(`/users/${id}`, {email})
+        return { success: true };
+    } catch (error) {
+        console.error("Error updating user email:", error)
+        return { success: false, error };
+    }
+}
+
+export const updateUserPassword = async (id, email, currentPassword, password) => {
+    if ((await loginUser(email, currentPassword)).error.response.data === 'Você já está logado no sistema!') {
+        try {
+            const response = await api.put(`/users/${id}`, newEmail)
+            return { success: true };
+        } catch (error) {
+            console.error("Error updating user email:", error)
+            return { success: false, error };
+        }
+    } else {
+        return { sucess: false, error: 'Senha atual incorreta.' }
+    }
+}
+
 // Criação de artistas no banco de dados
 export const setupInitialArtists = async () => {
     const artistIds = [
@@ -106,7 +141,7 @@ export const setupInitialArtists = async () => {
                 nationality: artist.nationality,
                 image
             });
-            
+
             console.log(`Artist ${name} created successfully`);
         }
     } catch (error) {
