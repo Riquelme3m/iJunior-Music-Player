@@ -145,7 +145,7 @@ const SignupPage = () => {
                 </div>
                 {error.username && <Alert variant="outlined" severity="error" className='-mt-4'>{error.username}</Alert>}
 
-                <button type="submit" disabled={isLoading} className="bg-[#3FE168] text-white font-semibold uppercase w-[240px] h-[45px] rounded-full place-self-center">
+                <button type="submit" disabled={isLoading} className="bg-[#3FE168] text-white font-semibold uppercase w-[240px] h-[45px] rounded-full place-self-center cursor-pointer">
                     {isLoading ? "Carregando..." : "Cadastrar"}
                 </button>
             </form>
