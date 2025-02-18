@@ -6,17 +6,17 @@ export const api = axios.create({
 });
 
 export const linkSongToUser = async (songId) => {
-    try{
+    try {
         const response = await api.post(`/users-songs/${songId}`);
         return {
             success: true
         };
     }
-    catch(error){
-        console.error("Error linking song to user:",error);
+    catch (error) {
+        console.error("Error linking song to user:", error);
         return {
-            success:false,
-            error:error.message,
+            success: false,
+            error: error.message,
         };
     }
 }
@@ -29,13 +29,13 @@ export const getAllArtists = async () => {
         return null;
     }
 };
-export const getSongsUserLiked = async(userId) =>{
-    try{
+export const getSongsUserLiked = async (userId) => {
+    try {
         const response = await api.get(`/users-songs/users/${userId}`);
         return response.data;
     }
-    catch(error){
-        console.error("Error getting songs that the user Liked",error);
+    catch (error) {
+        console.error("Error getting songs that the user Liked", error);
     }
 }
 

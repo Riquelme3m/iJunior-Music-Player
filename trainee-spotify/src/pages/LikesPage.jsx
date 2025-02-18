@@ -1,41 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
-import { getSongObjectFromAnArtistsById } from "../services/api"
-import { getArtistById } from "../services/api";
 import Sidebar from "../components/Sidebar";
-import playIcon from '../assets/play.svg'
-import heartIcon from "../assets/heart.svg";
-import downloadIcon from "../assets/download.svg";
-import ellipsisIcon from "../assets/ellipsis.svg";
-import deleteIcon from "../assets/delete.svg";
-import clockIcon from "../assets/clock.svg";
 import violetHeart from "../assets/violetHeart.svg"
-import {getSongsUserLiked} from "../services/api";
-import {getUserInfo} from "../services/api";
+import { getSongsUserLiked, getUserInfo } from "../services/api";
 
 function ArtistSongs() {
 
-    const[SongsUserLiked,setSongsUserLiked]=useState([]);
-    useEffect(()=>{
-        const fetchSongs = async () =>{
-            try{
+    const [SongsUserLiked, setSongsUserLiked] = useState([]);
+    useEffect(() => {
+        const fetchSongs = async () => {
+            try {
                 const userInfo = await getUserInfo();
                 const songs = await getSongsUserLiked(userInfo.id);
                 setSongsUserLiked(songs);
-           }   
-           catch(e){
-               console.error("Error getting the songs user liked",e);
-           }
+            }
+            catch (e) {
+                console.error("Error getting the songs user liked", e);
+            }
         }
         fetchSongs();
-        
-    },[])
 
-    
-
-
-    
-    
+    }, [])
 
     return (
 

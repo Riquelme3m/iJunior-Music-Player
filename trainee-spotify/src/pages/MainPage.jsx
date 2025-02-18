@@ -1,23 +1,17 @@
 import React, { useState, useEffect } from "react";
 import ArtistCard from "../components/ArtistCard";
-import Sidebar from "../components/Sidebar";
-import { getAllArtists, createUser, loginUser, checkLoginStatus } from "../services/api";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router";
-import { createContext,useContext } from "react";
-
+import { getAllArtists } from "../services/api";
 
 function MainPage() {
-    
     const [allArtistsToBeDisplayed, setAllArtistsToBeDisplayed] = useState([]);
     const [hasRun, setHasRun] = useState(false); // State to ensure one-time function execution
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-   
+
     const loadArtists = async () => {
         try {
             const allArtistsFromDatabase = await getAllArtists();
-            const firstTenArtists = allArtistsFromDatabase.slice(0,10);
+            const firstTenArtists = allArtistsFromDatabase.slice(0, 10);
             setAllArtistsToBeDisplayed(firstTenArtists);
         } catch (err) {
             setError('Failed to load artists');
@@ -29,16 +23,7 @@ function MainPage() {
     useEffect(() => {
         const initialize = async () => {
             if (hasRun) return;
-
             try {
-                const initialized = localStorage.getItem('dataInitialized');
-
-                if (!initialized && !checkLoginStatus()) {
-                    await createUser("Riquelme Batista", "riquelmee@outlook.com", "12345678", "admin");
-                    await loginUser("riquelmee@outlook.com", "12345678");
-                    localStorage.setItem('dataInitialized', 'true');
-                }
-
                 await loadArtists();
                 setHasRun(true);
             } catch (error) {

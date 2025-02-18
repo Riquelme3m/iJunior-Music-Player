@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { getSongObjectFromAnArtistsById } from "../services/api"
-import { getArtistById } from "../services/api";
-import Sidebar from "../components/Sidebar";
-import playIcon from '../assets/play.svg'
-import heartIcon from "../assets/heart.svg";
-import downloadIcon from "../assets/download.svg";
-import ellipsisIcon from "../assets/ellipsis.svg";
-import deleteIcon from "../assets/delete.svg";
-import clockIcon from "../assets/clock.svg";
-import {linkSongToUser} from "../services/api";
+import { getSongObjectFromAnArtistsById, getArtistById, linkSongToUser } from "../services/api";
 
 function ArtistSongs() {
 
