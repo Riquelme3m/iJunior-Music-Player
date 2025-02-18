@@ -61,7 +61,7 @@ function ArtistSongs() {
                     {
                         songObject.map((song, index) => {
                             return (
-                                <tr key={artist.id}>
+                                <tr key={song.id}>
 
                                     <td className=" text-left p-[1rem]">
                                         <div className="flex gap-2">
