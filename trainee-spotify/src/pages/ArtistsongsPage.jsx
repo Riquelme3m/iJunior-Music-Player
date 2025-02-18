@@ -44,9 +44,9 @@ function ArtistSongs() {
 
             <div className="flex flex-row  gap-5 sm:gap-15 pt-[4rem] pl-[1rem]">
                 <i className="fa-solid fa-circle-play scale-250 text-green-600 sm:scale-450 cursor-pointer "></i>
-                <i class="fa-regular scale-200 fa-heart sm:scale-300 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
-                <i class="fa-regular scale-170 fa-circle-down sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400 "></i>
-                <i class="fa-solid scale-160 fa-ellipsis sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
+                <i className="fa-regular scale-200 fa-heart sm:scale-300 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
+                <i className="fa-regular scale-170 fa-circle-down sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400 "></i>
+                <i className="fa-solid scale-160 fa-ellipsis sm:scale-200 cursor-pointer text-[#D9D9D9] hover:text-green-400"></i>
             </div>
 
             <table className=" text-[0.7rem] text-[#CCCCC] font-[500] sm:text-[18px] w-[90%]">
@@ -54,7 +54,7 @@ function ArtistSongs() {
                     <tr className="border-b-1" >
                         <th className="text-[#D9D9D9] pb-[1rem] text-left"># TÍTULO</th>
                         <th className="text-[#D9D9D9] pb-[1rem] text-left">Gênero</th>
-                        <th className="text-[#D9D9D9] pb-[1rem] text-center md:text-center lg:text-left"><i class="fa-regular fa-clock"></i></th>
+                        <th className="text-[#D9D9D9] pb-[1rem] text-center md:text-center lg:text-left"><i className="fa-regular fa-clock"></i></th>
                     </tr>
                 </thead>
                 <tbody>
