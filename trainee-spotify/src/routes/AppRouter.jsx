@@ -1,48 +1,35 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { checkLoginStatus } from "../services/api";
-import MainPage from "../pages/MainPage";
+import ArtistsPage from "../pages/ArtistsPage";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import CurtidasPage from "../pages/LikesPage";
 import Account from "../pages/Account";
 import ArtistSongs from "../pages/ArtistsongsPage";
-
+import Sidebar from "../components/Sidebar";
 
 function AppRouter() {
-    const isLoggedIn = checkLoginStatus()
+    const isLoggedIn = checkLoginStatus();
 
     return (
         <Router>
-            <Routes>
-                // Login: caso ja estiver logado vai para /
-                <Route path="/login" element={!isLoggedIn ? <LoginPage /> : <Navigate to="/" />} />
-                <Route path="/signup/" element={!isLoggedIn ? <SignupPage /> : <Navigate to="/" />} />
+            <div className="flex w-screen">
+            {isLoggedIn && <Sidebar />}
+                <Routes>
+                    <Route path="/login" element={!isLoggedIn ? <LoginPage /> : <Navigate to="/artists" />} />
+                    <Route path="/signup" element={!isLoggedIn ? <SignupPage /> : <Navigate to="/artists" />} />
 
-                // Main: caso não estiver logado vai para /login
-                <Route path="/" element={
-                    isLoggedIn ? <MainPage /> : <Navigate to="/login" />
-                } />
+                    <Route path="/artists" element={isLoggedIn ? <ArtistsPage /> : <Navigate to="/login" />} />
+                    <Route path="/likes" element={isLoggedIn ? <CurtidasPage /> : <Navigate to="/login" />} />
+                    <Route path="/artists/:artistId" element={isLoggedIn ? <ArtistSongs /> : <Navigate to="/login" />} />
+                    <Route path="/account" element={isLoggedIn ? <Account /> : <Navigate to="/login" />} />
 
-                // Likes: caso não estiver logado vai para /login
-                <Route path="/likes" element={
-                    isLoggedIn ? <CurtidasPage /> : <Navigate to="/login" />
-                } />
-
-                <Route path="/songs/:artistId" element={
-                    isLoggedIn ? <ArtistSongs /> : <Navigate to="/login" />
-                }/>
-
-                // Account: caso não estiver logado vai para /login
-                <Route path="/account" element={
-                    isLoggedIn ? <Account /> : <Navigate to="/login" />
-                } />
-
-                // Pagina não definida: vai para /
-                <Route path="*" element={<Navigate to="/" />} />
-            </Routes>
+                    <Route path="*" element={<Navigate to={isLoggedIn ? "/artists" : "/login"} />} />
+                </Routes>
+            </div>
         </Router>
-    )
+    );
 }
 
 export default AppRouter;

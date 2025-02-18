@@ -7,7 +7,7 @@ const Sidebar = () => {
     const navigate = useNavigate()
 
     return (
-        <aside className="w-[30%] bg-[#000000] text-white flex flex-col overflow-hidden max-w-[263px] ">
+        <aside className="w-[30%] h-screen bg-[#000000] text-white flex flex-col overflow-hidden max-w-[263px] ">
             {/* Sticky container */}
             <div className="sticky top-0 pl-2 bg-black h-[100vh] flex flex-col gap-[1rem] items-[center] sm:items-center">
                 <div className="flex gap-[0.2rem] pt-[2rem] text-[10px] justify-center max-sm:pt-[1rem]">
