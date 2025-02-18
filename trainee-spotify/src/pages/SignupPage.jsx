@@ -102,7 +102,7 @@ const SignupPage = () => {
     }
 
     return (
-        <div className="flex flex-col  justify-center items-center w-[100vw] h-[100vh] m-auto bg-[#111111] text-white gap-10">
+        <div className="flex flex-col pl-3 pr-3 justify-center items-center w-full h-screen m-auto pt-3 pb-3 bg-[#111111] text-white gap-10">
             <div className="flex flex-col gap-5 jus max-w-[25rem]">
                 <div className="flex flex-col gap-1 justify-center">
                     <h1 className="text-4xl font-semibold text-center leading-snug">Inscrever-se em uma conta grátis do</h1>
@@ -114,10 +114,10 @@ const SignupPage = () => {
 
             </div>
 
-            <form action="" className=" flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
+            <form action="" className="max-w-[450px] w-full pl-10 pr-10 flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
 
                 <div className="flex relative">
-                    <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
+                    <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-full" onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
                     <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] inset-y-0 my-auto" />
@@ -127,7 +127,7 @@ const SignupPage = () => {
 
 
                 <div className="flex relative">
-                    <input type="password" id="password" placeholder="Criar uma senha" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
+                    <input type="password" id="password" placeholder="Criar uma senha" className="bg-[#3c3c3c] p-[0.5rem] w-full" onChange={(e) => {
                         setPassword(e.target.value);
                     }}
                     />
@@ -137,7 +137,7 @@ const SignupPage = () => {
                 {error.password && <Alert variant="outlined" severity="error" className='-mt-4'>{error.password}</Alert>}
 
                 <div className="flex relative">
-                    <input type="text" id="username" placeholder="Como devemos chamar você?" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
+                    <input type="text" id="username" placeholder="Como devemos chamar você?" className="bg-[#3c3c3c] p-[0.5rem] w-full" onChange={(e) => {
                         setUsername(e.target.value);
                     }}
                     />
@@ -150,7 +150,7 @@ const SignupPage = () => {
                 </button>
             </form>
 
-            <div className="font-semibold uppercase flex flex-row gap-1.5">
+            <div className="font-semibold uppercase flex flex-wrap justify-center gap-1.5">
                 <p>Já é um usuário do iSpotify?</p><Link to="/login" className="underline">Faça login</Link>
             </div>
 

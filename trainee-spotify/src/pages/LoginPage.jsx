@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import lockIcon from "../assets/lock.svg";
 import mailIcon from "../assets/mail.svg";
-import { useState } from "react";
 import Alert from '@mui/material/Alert';
-import { Link } from "react-router-dom";
 import { loginUser } from "../services/api";
 
 function LoginPage() {
@@ -24,7 +23,6 @@ function LoginPage() {
         setError({ email: "", password: "" })
 
         let formErrors = { email: "", password: "" }
-
 
         if (!email) {
             formErrors.email = "Campo e-mail é obrigatório"
@@ -60,20 +58,20 @@ function LoginPage() {
     }
 
     return (
-        <div className="flex flex-col justify-center items-center w-[100vw] h-[100vh] m-auto bg-[#111111] text-white gap-10">
+        <div className="flex flex-col justify-center items-center w-full h-screen m-auto pt-3 pb-3 bg-[#111111] text-white gap-10">
             <div className="flex flex-col gap-10 jus">
                 <div className="flex gap-1 justify-center">
                     <h1 className="text-5xl font-semibold">iSpotify</h1>
                     <i className="fa-regular fa-registered"></i>
                 </div>
 
-                <p className="text-4xl font-semibold">Música para todos.</p>
+                <p className="text-4xl font-semibold text-center">Música para todos.</p>
             </div>
 
-            <form action="" className=" flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
+            <form action="" className="max-w-[450px] pl-10 pr-10 w-full flex flex-col gap-[2rem]" onSubmit={handleSubmit} noValidate>
 
                 <div className="flex relative">
-                    <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
+                    <input type="email" name="" id="email" placeholder="Email" className="bg-[#3c3c3c] p-[0.5rem] w-full" onChange={(e) => {
                         setEmail(e.target.value);
                     }} />
                     <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] inset-y-0 my-auto" />
@@ -82,7 +80,7 @@ function LoginPage() {
                 {error.email && <Alert variant="outlined" severity="error" className="-mt-4">{error.email}</Alert>}
 
                 <div className="flex relative">
-                    <input type="password" id="password" placeholder="Senha" className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]" onChange={(e) => {
+                    <input type="password" id="password" placeholder="Senha" className="bg-[#3c3c3c] p-[0.5rem] w-full" onChange={(e) => {
                         setPassword(e.target.value);
                     }}
                     />
@@ -94,7 +92,7 @@ function LoginPage() {
                     {isLoading ? "Carregando..." : "Entrar"}
                 </button>
             </form>
-            <div className="font-semibold uppercase flex flex-row gap-1.5">
+            <div className="max-w-[450px] w-full pl-5 pr-5 font-semibold uppercase flex flex-wrap gap-1.5 justify-center">
                 <p>Não tem uma conta?</p><Link to="/signup" className="underline">Inscreva-se</Link>
             </div>
 
