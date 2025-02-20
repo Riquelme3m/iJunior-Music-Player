@@ -22,7 +22,7 @@ function ArtistSongs() {
     }, [])
 
     return (
-        <main className="text-white flex flex-col gap-[4rem] pt-[100px] pl-[0.5rem] text-[13px] sm:pl-[4rem] sm:pt-[20vh]  bg-linear-to-t from-[#101010] via-[#101010] via-20% to-[#3a3939]  w-auto flex-grow overflow-y-auto h-screen p-0 ">
+        <main className="text-white flex flex-col gap-[4rem] pt-[100px] pl-[0.5rem] text-[13px] sm:pl-[4rem] sm:pt-[20vh] bg-linear-to-t from-[#101010] via-[#101010] via-20% to-[#3a3939] w-full flex-grow overflow-y-auto h-screen p-0">
             <div className="flex flex-row gap-8 sm:gap-10 ">
                 <img className="w-[100px] h-[100px] rounded-[2px] sm:w-[200px]  sm:h-[200px]" src={violetHeart} alt="Artist Image" />
                 <div className="flex flex-col gap-2 justify-end">
