@@ -87,6 +87,7 @@ export const loginUser = async (email, password) => {
             password
         });
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('password', password);
         console.log("Login successful:", response);
         return {
             success: true
@@ -141,15 +142,18 @@ export const updateUserEmail = async (id, email) => {
     }
 }
 
-export const updateUserPassword = async (id, email, currentPassword, password) => {
-    if ((await loginUser(email, currentPassword)).error.response.data === 'Você já está logado no sistema!') {
+export const updateUserPassword = async (id, currentPassword, newPassword) => {
+    if (localStorage.getItem('password') === currentPassword) {
         try {
-            const response = await api.put(`/users/${id}`, newEmail)
+            const response = await api.put(`/users/${id}`, {
+                newPassword
+            })
+            localStorage.setItem('password', newPassword);
             return {
                 success: true
             };
         } catch (error) {
-            console.error("Error updating user email:", error)
+            console.error("Error updating user password:", error)
             return {
                 success: false,
                 error
@@ -157,7 +161,7 @@ export const updateUserPassword = async (id, email, currentPassword, password) =
         }
     } else {
         return {
-            sucess: false,
+            success: false,
             error: 'Senha atual incorreta.'
         }
     }

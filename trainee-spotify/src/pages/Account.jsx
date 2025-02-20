@@ -97,7 +97,7 @@ const Account = () => {
             return;
         }
         if (newPassword === currentPassword) {
-            setErrorPassword('Sua nova senha é igual à atual.');
+            setErrorPassword('Sua nova senha não deve ser igual à atual.');
             return;
         }
         if (newPassword !== confirmNewPassword) {
@@ -106,8 +106,8 @@ const Account = () => {
         }
         try {
             setIsLoading(true)
-            const response = await updateUserPassword(id, email, currentPassword, newPassword)
-            if (response.sucess) {
+            const response = await updateUserPassword(id, currentPassword, newPassword)
+            if (response.success) {
                 setSuccess('Senha alterada com sucesso.');
                 setIsChangingPassword(false)
             }
@@ -134,7 +134,7 @@ const Account = () => {
                     <img src={mailIcon} alt="Mail icon" />
                 </div>
 
-                {success && <Alert variant="outlined" severity="success" className='-mt-4 mb-4'>{success}</Alert>}
+                {success && <Alert variant="outlined" severity="success" className='-mt-4 mb-4 w-full'>{success}</Alert>}
 
                 <button id='email' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-full max-w-[240px] h-[45px] rounded-full mb-4">
                     Trocar Email
