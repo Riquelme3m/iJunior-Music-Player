@@ -120,23 +120,23 @@ const Account = () => {
     }
 
     return (
-        <main className="bg-[#101010] w-full flex flex-grow overflow-y-auto h-screen p-0 pt-[4rem]">
-            <div className='flex flex-col '>
-                <h1 className='font-semibold text-3xl mb-8 text-white'>Minha Conta</h1>
+        <main className="bg-[#101010] w-full flex flex-grow justify-center items-center overflow-y-auto h-screen p-0 pt-[4rem]">
+            <div className='flex flex-col items-center'>
+                <h1 className='font-semibold text-3xl mb-10 text-white'>Minha Conta</h1>
 
-                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-4 text-[#CCCCCC]">
+                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-6 text-[#CCCCCC]">
                     <p>{name}</p>
                     <img src={userIcon} alt="User icon" />
                 </div>
 
-                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-8 text-[#CCCCCC]">
+                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-10 text-[#CCCCCC]">
                     <p>{email}</p>
                     <img src={mailIcon} alt="Mail icon" />
                 </div>
 
                 {success && <Alert variant="outlined" severity="success" className='-mt-4 mb-4'>{success}</Alert>}
 
-                <button id='email' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-[240px] h-[45px] rounded-full mb-3">
+                <button id='email' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-[240px] h-[45px] rounded-full mb-4">
                     Trocar Email
                 </button>
                 <button id='password' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-[240px] h-[45px] rounded-full">
@@ -147,9 +147,9 @@ const Account = () => {
             {/* Pop up change email */}
             {isChangingEmail &&
                 <div className="absolute">
-                    <div className="bg-neutral-800 fixed opacity-50 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
-                    <div className="text-white bg-black z-50 w-110 h-auto place-self-center relative justify-items-center p-4">
-                        <h1 className='text-[30px] font-bold mb-4'>Novo E-mail</h1>
+                    <div className="bg-neutral-900 fixed opacity-75 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
+                    <div className="text-white bg-black z-50 h-auto place-self-center relative justify-items-center p-6 rounded-xl">
+                        <h1 className='text-[30px] font-bold mb-6'>Novo E-mail</h1>
                         <form className="flex relative flex-col gap-3" onSubmit={handleSubmitEmail} noValidate>
 
                             <div className='flex'>
@@ -166,7 +166,7 @@ const Account = () => {
 
                             {errorEmail && <Alert variant='outlined' severity='error' >{errorEmail}</Alert>}
 
-                            <div className='flex gap-3 place-items-center justify-center mb-3'>
+                            <div className='flex gap-5 place-items-center justify-center mb-3 mt-2'>
                                 <button id='cancelar' onClick={handleButton} className="bg-red-500 text-white cursor-pointer font-semibold uppercase w-35 h-[45px] rounded-full place-self-center">
                                     Cancelar
                                 </button>
@@ -184,8 +184,8 @@ const Account = () => {
             {/* Pop up change password */}
             {isChangingPassword &&
                 <div className="absolute">
-                    <div className="bg-neutral-800 fixed opacity-50 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
-                    <div className="text-white bg-black z-50 w-110 h-auto place-self-center relative justify-items-center p-4">
+                    <div className="bg-neutral-900 fixed opacity-75 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
+                    <div className="text-white bg-black z-50 h-auto place-self-center relative justify-items-center px-6 py-8 rounded-xl">
                         <h1 className='text-[30px] font-bold mb-4'>Nova senha</h1>
                         <form className="flex relative flex-col gap-10" onSubmit={handleSubmitPassword} noValidate>
                             <div className="relative flex items-center">
@@ -218,7 +218,7 @@ const Account = () => {
 
                             {errorPassword && <Alert variant='outlined' severity='error' className='-mt-4'>{errorPassword}</Alert>}
 
-                            <div className='flex gap-3 place-items-center justify-center -mt-5 mb-3'>
+                            <div className='flex gap-5 place-items-center justify-center -mt-5 mb-1'>
                                 <button id='cancelar' onClick={handleButton} className="bg-red-500 text-white cursor-pointer font-semibold uppercase w-35 h-[45px] rounded-full place-self-center">
                                     Cancelar
                                 </button>
