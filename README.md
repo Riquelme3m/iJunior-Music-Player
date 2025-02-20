@@ -18,7 +18,7 @@
 
 3. Open another terminal, install front-end dependencies and start:
    ```bash
-    cd trainee-spotify/
+    cd trainee-spotify/front-end
     npm install
     npm run dev
     ```
