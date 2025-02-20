@@ -81,7 +81,7 @@ function ArtistSongs() {
                                     <td className="pl-[0.5rem]">
 
                                         <div className="flex gap-[0.3rem] sm:gap-[1rem]">
-                                            <i className="fa-regular  fa-heart cursor-pointer hover:text-green-400 " onClick={() => {
+                                            <i className="fa-regular  fa-heart cursor-pointer hover:text-green-400 transition-transform duration-150 active:scale-125 " onClick={() => {
                                                 linkSongToUser(song.id);
                                             }} ></i>
                                             <i className="fa-solid fa-trash cursor-pointer hover:text-green-400"></i>

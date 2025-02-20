@@ -19,7 +19,6 @@ function AppRouter() {
                 <Routes>
                     <Route path="/login" element={!isLoggedIn ? <LoginPage /> : <Navigate to="/artists" />} />
                     <Route path="/signup" element={!isLoggedIn ? <SignupPage /> : <Navigate to="/artists" />} />
-
                     <Route path="/artists" element={isLoggedIn ? <ArtistsPage /> : <Navigate to="/login" />} />
                     <Route path="/likes" element={isLoggedIn ? <CurtidasPage /> : <Navigate to="/login" />} />
                     <Route path="/artists/:artistId" element={isLoggedIn ? <ArtistSongs /> : <Navigate to="/login" />} />

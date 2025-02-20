@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import violetHeart from "../assets/violetHeart.svg"
-import { getSongsUserLiked, getUserInfo } from "../services/api";
+import { getSongsUserLiked, getUserInfo ,deleteSongFromUser } from "../services/api";
 
 function ArtistSongs() {
 
@@ -22,7 +22,7 @@ function ArtistSongs() {
     }, [])
 
     return (
-        <main className="text-white flex flex-col gap-[4rem] pt-[100px] pl-[0.5rem] text-[13px] sm:pl-[4rem] sm:pt-[20vh] bg-linear-to-t from-[#101010] via-[#101010] via-20% to-[#3a3939] w-full flex-grow overflow-y-auto h-screen p-0">
+        <main className="text-white flex flex-col gap-[4rem] pt-[100px] pl-[0.5rem] text-[13px] sm:pl-[4rem] sm:pt-[20vh] bg-linear-to-t from-[#101010] via-[#101010] via-33% to-[#5E44FF] w-full flex-grow overflow-y-auto h-screen p-0">
             <div className="flex flex-row gap-8 sm:gap-10 ">
                 <img className="w-[100px] h-[100px] rounded-[2px] sm:w-[200px]  sm:h-[200px]" src={violetHeart} alt="Artist Image" />
                 <div className="flex flex-col gap-2 justify-end">
@@ -66,9 +66,12 @@ function ArtistSongs() {
 
                                 <td className="pl-[0.5rem]">
 
-                                    <div className="flex gap-[0.3rem] sm:gap-[1rem]">
+                                    <div className="flex gap-[0.3rem] sm:gap-[1rem]" onClick={() => {
+                                        deleteSongFromUser(song.id);
+                                        setSongsUserLiked((prevSongs)=>prevSongs.filter(uniqueSong=>uniqueSong.id !== song.id))
+                                    }}>
 
-                                        <i className="fa-solid fa-trash cursor-pointer hover:text-green-400"></i>
+                                        <i className="fa-solid fa-trash cursor-pointer hover:text-green-400  transition-transform duration-150 active:scale-125"></i>
                                     </div>
 
                                 </td>

@@ -11,8 +11,7 @@ export const linkSongToUser = async (songId) => {
         return {
             success: true
         };
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error linking song to user:", error);
         return {
             success: false,
@@ -33,8 +32,7 @@ export const getSongsUserLiked = async (userId) => {
     try {
         const response = await api.get(`/users-songs/users/${userId}`);
         return response.data;
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error getting songs that the user Liked", error);
     }
 }
@@ -100,6 +98,31 @@ export const loginUser = async (email, password) => {
         };
     }
 };
+
+export const deleteSongFromUser = async (songId) => {
+    try {
+        const response = await api.delete(`/users-songs/${songId}`);
+        if (response.status === 204) {
+            console.log("Song deleted successfully!");
+            return {
+                success: true
+            }
+        } else {
+            console.error("Unexpected response status:", response.status);
+            return {
+                success: false,
+                error: "Unexpected response status"
+            };
+        }
+
+    } catch (error) {
+        console.error("Error deleting song from user:", error);
+        return {
+            success: false,
+            error
+        }
+    }
+}
 
 export const logoutUser = () => {
     api.post("/users/logout");
