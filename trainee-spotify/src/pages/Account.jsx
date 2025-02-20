@@ -121,25 +121,25 @@ const Account = () => {
 
     return (
         <main className="bg-[#101010] w-full flex flex-grow justify-center items-center overflow-y-auto h-screen p-0 pt-[4rem]">
-            <div className='flex flex-col items-center'>
-                <h1 className='font-semibold text-3xl mb-10 text-white'>Minha Conta</h1>
+            <div className='flex flex-col items-center w-full max-w-100 !p-4'>
+                <h1 className='font-semibold text-3xl text-center mb-10 text-white'>Minha Conta</h1>
 
-                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-6 text-[#CCCCCC]">
+                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-full mb-6 text-[#CCCCCC]">
                     <p>{name}</p>
                     <img src={userIcon} alt="User icon" />
                 </div>
 
-                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-100 mb-10 text-[#CCCCCC]">
+                <div className="flex relative bg-[#3c3c3c] justify-between p-3 w-full mb-10 text-[#CCCCCC]">
                     <p>{email}</p>
                     <img src={mailIcon} alt="Mail icon" />
                 </div>
 
                 {success && <Alert variant="outlined" severity="success" className='-mt-4 mb-4'>{success}</Alert>}
 
-                <button id='email' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-[240px] h-[45px] rounded-full mb-4">
+                <button id='email' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-full max-w-[240px] h-[45px] rounded-full mb-4">
                     Trocar Email
                 </button>
-                <button id='password' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-[240px] h-[45px] rounded-full">
+                <button id='password' onClick={handleButton} className="bg-[#3FE168] text-white cursor-pointer font-semibold uppercase w-full max-w-[240px] h-[45px] rounded-full">
                     Trocar Senha
                 </button>
             </div>
@@ -148,9 +148,11 @@ const Account = () => {
             {isChangingEmail &&
                 <div className="absolute">
                     <div className="bg-neutral-900 fixed opacity-75 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
-                    <div className="text-white bg-black z-50 h-auto place-self-center relative justify-items-center p-6 rounded-xl">
+                    <div className="text-white bg-black z-50 h-auto place-self-center mx-auto relative justify-items-center p-6 rounded-xl
+                                    max-sm:fixed max-sm:top-1/2 max-sm:-translate-y-1/2 max-sm:left-1/2 max-sm:-translate-x-1/2 w-100 max-w-dvw"
+                    >
                         <h1 className='text-[30px] font-bold mb-6'>Novo E-mail</h1>
-                        <form className="flex relative flex-col gap-3" onSubmit={handleSubmitEmail} noValidate>
+                        <form className="flex relative flex-col gap-3 w-full" onSubmit={handleSubmitEmail} noValidate>
 
                             <div className='flex'>
                                 <input
@@ -158,7 +160,7 @@ const Account = () => {
                                     name=""
                                     id="email"
                                     placeholder="Email"
-                                    className="bg-[#3c3c3c] p-[0.5rem] w-[25rem]"
+                                    className="bg-[#3c3c3c] p-[0.5rem] w-full"
                                     onChange={(e) => { setNewEmail(e.target.value); }}
                                 />
                                 <img src={mailIcon} alt="Mail icon" className="absolute right-[10px] top-1.5" />
@@ -185,14 +187,16 @@ const Account = () => {
             {isChangingPassword &&
                 <div className="absolute">
                     <div className="bg-neutral-900 fixed opacity-75 text-white w-[100vw] h-full top-0 right-0 z-10" id='cancelar' onClick={handleButton}></div>
-                    <div className="text-white bg-black z-50 h-auto place-self-center relative justify-items-center px-6 py-8 rounded-xl">
+                    <div className="text-white bg-black z-50 h-auto place-self-center mx-auto relative justify-items-center p-6 rounded-xl
+                                    max-sm:fixed max-sm:top-1/2 max-sm:-translate-y-1/2 max-sm:left-1/2 max-sm:-translate-x-1/2 w-100 max-w-dvw"
+                    >
                         <h1 className='text-[30px] font-bold mb-4'>Nova senha</h1>
-                        <form className="flex relative flex-col gap-10" onSubmit={handleSubmitPassword} noValidate>
+                        <form className="flex relative flex-col gap-10 w-full" onSubmit={handleSubmitPassword} noValidate>
                             <div className="relative flex items-center">
                                 <input
                                     type="password"
                                     placeholder="Senha atual"
-                                    className="bg-[#3c3c3c] p-[0.5rem] w-[25rem] pr-10"
+                                    className="bg-[#3c3c3c] p-[0.5rem] w-full pr-10"
                                     onChange={(e) => setCurrentPassword(e.target.value)}
                                 />
                                 <img src={lockIcon} alt="Lock icon" className="absolute right-3 flex items-center" />
