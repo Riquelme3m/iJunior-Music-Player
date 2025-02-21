@@ -1,6 +1,39 @@
 # iJunior-iSpotify
 
 ## Table of Contents
+
+- [Overview](#overview)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+  - [Built With](#built-with)
+
+
+### Screenshot
+
+![](./trainee-spotify/front-end/src/assets/loginScreen.PNG)
+![](./trainee-spotify/front-end/src/assets/likeScreen.PNG)
+![](./trainee-spotify/front-end/src/assets/mainScreen.PNG)
+![](./trainee-spotify/front-end/src/assets/myAccountScreen.PNG)
+![](./trainee-spotify/front-end/src/assets/signupScreen.PNG)
+
+### Links
+
+- Solution URL: [https://trainee-spotify-test.vercel.app/](https://trainee-spotify-test.vercel.app/)
+
+### Built With
+
+- HTML
+- Tailwind CSS
+- Java Script
+- React JS
+- API from : [https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS](https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS)
+- Vercel for deployment
+
+
+
+
+
+<!-- ## Table of Contents
 - How to run
 
 ### How to run
@@ -29,4 +62,4 @@
 <br></br>
 
 For more info on the API, access: 
-- https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS
+- https://github.com/UFMGInformaticaJr/Trainee-Spotify-JS -->
