@@ -26,7 +26,7 @@
 
 ### Links
 
-- Solution URL: [https://trainee-spotify-test.vercel.app/](https://trainee-spotify-test.vercel.app/)
+- Solution URL: [https://i-junior-i-spotify-domain-name.vercel.app/](https://i-junior-i-spotify-domain-name.vercel.app/)
 
 ### Built With
 
