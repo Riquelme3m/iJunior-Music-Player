@@ -10,11 +10,11 @@
 
 ### Screenshot
 
-![](./trainee-spotify/front-end/src/assets/loginScreen.PNG)
-![](./trainee-spotify/front-end/src/assets/likeScreen.PNG)
-![](./trainee-spotify/front-end/src/assets/mainScreen.PNG)
-![](./trainee-spotify/front-end/src/assets/myAccountScreen.PNG)
-![](./trainee-spotify/front-end/src/assets/signupScreen.PNG)
+![](./trainee-spotify/front-end/src/assets/loginScreen.png)
+![](./trainee-spotify/front-end/src/assets/likeScreen.png)
+![](./trainee-spotify/front-end/src/assets/mainScreen.png)
+![](./trainee-spotify/front-end/src/assets/myAccountScreen.png)
+![](./trainee-spotify/front-end/src/assets/signupScreen.png)
 
 ### Links
 
