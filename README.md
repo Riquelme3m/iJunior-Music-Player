@@ -11,9 +11,17 @@
 ### Screenshot
 
 ![](./trainee-spotify/front-end/src/assets/loginScreen.png)
+<br>
+
 ![](./trainee-spotify/front-end/src/assets/likeScreen.png)
+<br>
+
 ![](./trainee-spotify/front-end/src/assets/mainScreen.png)
+<br>
+
 ![](./trainee-spotify/front-end/src/assets/myAccountScreen.png)
+<br>
+
 ![](./trainee-spotify/front-end/src/assets/signupScreen.png)
 
 ### Links
