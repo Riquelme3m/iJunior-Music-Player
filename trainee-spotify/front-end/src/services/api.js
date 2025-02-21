@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "https://i-junior-i-spotify-domain-name.vercel.app/",
+    baseURL: "https://i-junior-i-spotify-domain-name.vercel.app/api",
     withCredentials: true,
 });
 
