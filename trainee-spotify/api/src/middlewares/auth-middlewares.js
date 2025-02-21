@@ -20,7 +20,7 @@ function generateJWT(user, res) {
     httpOnly: true,
     secure: process.env.NODE_ENV !== 'development', // Only in production
     sameSite: 'Lax', // Allow cookies on same-site requests, even across different paths
-    domain: 'trainee-spotify-test.vercel.app', // Your domain
+    domain: 'i-junior-i-spotify-domain-name.vercel.app', // Your domain
     path: '/', // Ensure the cookie is accessible across all paths
   });
 }
