@@ -13,7 +13,8 @@ app.use(
       "http://127.0.0.1:5173:3030",
       "http://127.0.0.1:5173",
       "http://localhost:3000",
-      "https://i-junior-music-player-p5ov.vercel.app/",
+      "https://i-junior-i-spotify-domain-name.vercel.app/",
+      /* https://trainee-spotify.vercel.app*/
     ],
     credentials: true,
   })
