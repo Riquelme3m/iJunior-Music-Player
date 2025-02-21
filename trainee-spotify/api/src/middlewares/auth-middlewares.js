@@ -12,12 +12,16 @@ function generateJWT(user, res) {
     role: user.role,
   };
 
-  const token = jwt.sign({ user: body }, process.env.SECRET_KEY,
-    { expiresIn: process.env.JWT_EXPIRATION });
+  const token = jwt.sign({ user: body }, process.env.SECRET_KEY, {
+    expiresIn: process.env.JWT_EXPIRATION,
+  });
 
   res.cookie('jwt', token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV !== 'development',
+    secure: process.env.NODE_ENV !== 'development', // Only in production
+    sameSite: 'Lax', // Allow cookies on same-site requests, even across different paths
+    domain: 'trainee-spotify-test.vercel.app', // Your domain
+    path: '/', // Ensure the cookie is accessible across all paths
   });
 }
 

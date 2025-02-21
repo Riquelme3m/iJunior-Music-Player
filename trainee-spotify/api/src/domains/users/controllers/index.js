@@ -13,8 +13,8 @@ router.post('/logout',
   verifyJWT,
   async (req, res, next) => {
     try {
-      res.clearCookie('jwt');
-      res.status(statusCodes.noContent).end();
+      res.clearCookie('jwt', { domain: 'trainee-spotify.vercel.app', path: '/' });
+      res.status(statusCodes.noContent).json({ message: 'Logged out' });
     } catch (error) {
       next(error);
     }

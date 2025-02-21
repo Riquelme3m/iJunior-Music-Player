@@ -1,6 +1,11 @@
-const app = require('./config/express-config');
+const app = require("./config/express-config");
 
-app.use("/",(req,res)=>{
-    res.send("Server is running...");
-})
-app.listen(3030, console.log('API listening on port 3030'));
+// Start the server only if not in a serverless environment
+if (process.env.VERCEL_ENV !== "production") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
